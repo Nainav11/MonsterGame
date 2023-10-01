@@ -1,7 +1,7 @@
 const gameContainer = document.querySelector('.game-container');
 const scoreElement = document.getElementById('score'); // Get the score element
 const spawnTime = 1500; // Controls spwan time in milisecons
-const monsterCount = 9; // Controls how many monsters will be spawned
+const monsterCount = 5; // Controls how many monsters will be spawned
 let score = 0; // Initialize the score
 
 function getRandomPosition() {
@@ -14,7 +14,7 @@ function getRandomPosition() {
 
 function getRandomMonsterImage() {
     const randomMonsterNumber = Math.floor(Math.random() * 6) + 1; // Randomly choose between 1 and 6
-    return img/${randomMonsterNumber}.png;
+    return `img/${randomMonsterNumber}.png`;
 }
 
 function spawnMonsters() {
@@ -24,15 +24,15 @@ function spawnMonsters() {
         const position = getRandomPosition();
 
         monster.className = 'monster'; // Add the 'monster' class to the monster element
-        monster.style.left = ${position.x}px;
-        monster.style.top = ${position.y}px;
-        monster.style.background = url(${monsterImage}) center/cover no-repeat;
+        monster.style.left = `${position.x}px`;
+        monster.style.top = `${position.y}px`;
+        monster.style.background = `url(${monsterImage}) center/cover no-repeat`;
 
         monster.onclick = () => {
             const audio = new Audio("https://www.zapsplat.com/wp-content/uploads/2015/sound-effects-epic-stock-media/esm_8bit_explosion_medium_bomb_boom_blast_cannon_retro_old_school_classic_cartoon.mp3");
             audio.volume = 0.5;
             audio.play();
-            monster.style.background = url('img/explosion.gif') center/cover no-repeat; // Show explosion
+            monster.style.background = `url('img/explosion.gif') center/cover no-repeat`; // Show explosion
             monster.style.pointerEvents = 'none'; // Disable further clicks
 
             // Update the score
